@@ -20,8 +20,10 @@ Files:
    - useful agriculture-flavoured example
 
 4. TSA_Week1_Time_Series_Baseline_VSCode.ipynb
-   - runs in VS Code AND in Google Colab (same file, no edits needed)
-   - pick a CSV by editing `filename` in cell 3
+   - runs in Colab, VS Code, Kaggle, GitHub Classroom, anywhere
+   - NO file upload and NO setup: all three CSVs are stored compressed
+     inside the notebook, so the data can never go missing
+   - pick a CSV by editing `filename` in the cell under "1. Choose a dataset"
    - inspect
    - parse/sort time
    - time plot
@@ -30,8 +32,6 @@ Files:
    - MAE/RMSE
    - optional lag-1 plot
    - VS Code: use the project .venv Python 3 kernel (already registered)
-   - Colab: upload the notebook, then the first code cell opens a file
-     picker for the CSV; pick it once and the whole run reuses it
 
 All three datasets are synthetic teaching data.
 
@@ -41,8 +41,19 @@ How to open the notebook on Google Colab
   TSA_Week1_Time_Series_Baseline_VSCode.ipynb
   (dragging the .ipynb onto the Colab page works too)
 - Runtime > Run all
-- when the first code cell asks for a file, choose
-  tsa_week1_synthetic_monthly_sales.csv
+- nothing else: the notebook carries its own copy of the data
 
-If the CSVs are ever hosted somewhere public, put that raw URL in
-RAW_BASE in cell 3 and the notebook downloads the CSV instead of asking.
+How to run it in VS Code
+- open the folder, then the notebook
+- pick the Python 3 kernel (the project .venv)
+- Runtime > Run All
+
+About the "Choose file" button
+The Colab file picker only works inside the Colab website. VS Code cannot
+draw that dialog, so the notebook checks where it is running and skips the
+picker when it is not on the Colab page; the built-in copy of the CSV is used
+instead. Every environment therefore gives the same numbers:
+MAE 244.17, RMSE 271.58 (monthly sales dataset).
+
+If the CSVs are ever hosted somewhere public, put that raw URL in RAW_BASE and
+the notebook downloads the CSV instead of using the built-in copy.
