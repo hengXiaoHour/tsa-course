@@ -20,8 +20,8 @@ Files:
    - useful agriculture-flavoured example
 
 4. TSA_Week1_Time_Series_Baseline_VSCode.ipynb
-   - local VS Code version
-   - pick a CSV by editing `filename` in cell 2
+   - runs in VS Code AND in Google Colab (same file, no edits needed)
+   - pick a CSV by editing `filename` in cell 3
    - inspect
    - parse/sort time
    - time plot
@@ -29,6 +29,20 @@ Files:
    - naive forecast baseline
    - MAE/RMSE
    - optional lag-1 plot
-   - use the project .venv Python 3 kernel (already registered)
+   - VS Code: use the project .venv Python 3 kernel (already registered)
+   - Colab: upload the notebook, then the first code cell opens a file
+     picker for the CSV; pick it once and the whole run reuses it
 
 All three datasets are synthetic teaching data.
+
+How to open the notebook on Google Colab
+- go to https://colab.research.google.com
+- File > Upload Notebook... and choose
+  TSA_Week1_Time_Series_Baseline_VSCode.ipynb
+  (dragging the .ipynb onto the Colab page works too)
+- Runtime > Run all
+- when the first code cell asks for a file, choose
+  tsa_week1_synthetic_monthly_sales.csv
+
+If the CSVs are ever hosted somewhere public, put that raw URL in
+RAW_BASE in cell 3 and the notebook downloads the CSV instead of asking.
